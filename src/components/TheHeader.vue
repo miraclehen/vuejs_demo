@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-light">
     <div class="container">
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <router-link class="navbar-brand" :to="{ name: 'home' }">
         conduit
       </router-link>
       <ul v-if="!isAuthenticated" class="nav navbar-nav pull-xs-right">
@@ -37,6 +37,16 @@
         </li>
       </ul>
       <ul v-else class="nav navbar-nav pull-xs-right">
+        <li class="nav-item">
+          <router-link
+            class="nav-link"
+            active-class="active"
+            exact
+            :to="{ name: 'home' }"
+          >
+            Home
+          </router-link>
+        </li>
         <li class="nav-item">
           <router-link
             class="nav-link"
