@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <DmHeader></DmHeader>
+    <router-view></router-view>
+    <DmFooter></DmFooter>
   </div>
 </template>
 
 <script>
+import DmHeader from '@/components/TheHeader'
+import DmFooter from '@/components/TheFooter'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    DmHeader,
+    DmFooter
+  }
 }
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
+
 </style>
