@@ -46,13 +46,15 @@ const actions = {
     context.commit(PURGE_AUTH)
   },
   [REGISTER] (context, credentials) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       ApiService.post('users', {user: credentials})
         .then(({data}) => {
           context.commit(SET_AUTH, data.user)
+          resolve(data)
         })
         .catch(({response}) => {
           context.commit(SET_ERROR, response.data.errors)
+          reject(response)
         })
     })
   },
