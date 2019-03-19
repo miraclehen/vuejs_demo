@@ -6,6 +6,7 @@ import Login from '@/views/Login'
 import Home from '@/views/Home'
 import Settings from '@/views/Settings'
 import ArticleEdit from '@/views/ArticleEdit'
+import Profile from '@/views/Profile'
 
 Vue.use(Router)
 
@@ -30,6 +31,10 @@ export default new Router({
       name: 'article-edit',
       path: '/editor/:slug?',
       component: ArticleEdit
+    },
+    {
+      path: '/@:username',
+      component: Profile
     }
   ]
 })
