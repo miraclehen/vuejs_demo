@@ -3,6 +3,59 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-xs-12">
+          <DmListErrors :errors="errors"/>
+          <form v-on:submit.prevent="onPublish(article.slug);">
+            <fieldset :disabledd="inProgress">
+              <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  v-model="article.title"
+                  placeholder="Article Title"/>
+              </fieldset>
+              <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  v-model="article.description"
+                  placeholder="What's this article about?"
+                />
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea
+                  class="form-control"
+                  rows="8"
+                  v-model="article.body"
+                  placeholder="Write your article (int markdown)"
+                ></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter tags"
+                  v-model="tagInput"
+                  v-on:keypress.enter.prevent="addTag(tagInput);"
+                />
+                <div class="tag-list">
+                  <span class="tag-default tag-pill"
+                        v-for="(tag, index) of article.tagList"
+                        :key="tag + index"
+                  >
+                    <i class="ion-close-round" v-on:click="removeTag(tag);">
+                    </i>
+                    {{ tag }}
+                  </span>
+                </div>
+              </fieldset>
+            </fieldset>
+            <button
+              :disabled="inProgress"
+              class="btn btn-lg pull-xs-right btn-primary"
+              type="submit">
+              Publish Article
+            </button>
+          </form>
         </div>
       </div>
     </div>
