@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import {mapGeggters} from 'vuex'
+import {mapGetters} from 'vuex'
 import {
   FETCH_PROFILE,
   FETCH_PROFILE_FOLLOW,
@@ -86,7 +86,7 @@ export default {
 
   },
   computed: {
-    ...mapGeggters(['currentUser', 'profile', 'isAuthenticated'])
+    ...mapGetters(['currentUser', 'profile', 'isAuthenticated'])
   },
   methods: {
     isCurrentUser () {

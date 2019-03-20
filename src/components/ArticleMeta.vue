@@ -14,32 +14,38 @@
       </router-link>
       <span class="date">{{ article.createdAt | date}}</span>
     </div>
-  </div>
-  <template v-if="actions">
-  </template>
-  <template v-else>
-    <button
-      class="btn btn-sm pull-xs-right"
-      v-if="!actions"
-      v-on:click="toggleFavorite"
-      :class="{
+    <template v-if="actions">
+      <dm-article-actions
+        :article="article"
+        :canModify="isCurrentUser"></dm-article-actions>
+    </template>
+    <template v-else>
+      <button
+        class="btn btn-sm pull-xs-right"
+        v-if="!actions"
+        v-on:click="toggleFavorite"
+        :class="{
         'btn-primary' : article.favorited,
         'btn-outline-primary': !article.favorited
       }"
-    >
-      <i class="ion-heart"></i>
-      <span class="counter"> {{ article.favoritesCount }}</span>
-    </button>
-  </template>
+      >
+        <i class="ion-heart"></i>
+        <span class="counter"> {{ article.favoritesCount }}</span>
+      </button>
+    </template>
+  </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 import {FAVORITE_ADD, FAVORITE_REMOVE} from '../store/actions.type'
+import DmArticleActions from '@/components/ArticleActions'
 
 export default {
   name: 'DmArticleMeta',
-  components: {},
+  components: {
+    DmArticleActions
+  },
   props: {
     article: {
       type: Object,

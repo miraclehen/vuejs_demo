@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-import Login from '@/views/Login'
+import Login from '../views/Login'
 // import Register from '@/views/Register'
-import Home from '@/views/Home'
-import Settings from '@/views/Settings'
-import ArticleEdit from '@/views/ArticleEdit'
-import Profile from '@/views/Profile'
+import Home from '../views/Home'
+import Settings from '../views/Settings'
+import ArticleEdit from '../views/ArticleEdit'
+import Profile from '../views/Profile'
+import HomeGlobal from '../views/HomeGlobal'
 
 Vue.use(Router)
 
@@ -14,8 +15,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: HomeGlobal
+        }
+      ]
     },
     {
       name: 'login',

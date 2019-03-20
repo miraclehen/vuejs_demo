@@ -46,6 +46,10 @@
         <div class="col-md-3">
           <div class="sidebar">
             <p>Poplar Tags</p>
+            <div class="tag-list">
+              <DmTag v-for="(tag, index) in tags" :name="tag" :key="index">
+              </DmTag>
+            </div>
           </div>
         </div>
       </div>
@@ -55,13 +59,16 @@
 
 <script>
 import {mapGetters} from 'vuex'
-// import {FETCH_TAGS} from '@store/actions.type'
+import DmTag from '@/components/VTag'
+import {FETCH_TAGS} from '../store/actions.type'
 
 export default {
   name: 'home',
-  components: {},
+  components: {
+    DmTag
+  },
   mounted () {
-    // this.$store.dispatch(FETCH_TAGS)
+    this.$store.dispatch(FETCH_TAGS)
   },
   computed: {
     ...mapGetters(['isAuthenticated', 'tags']),
