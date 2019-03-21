@@ -11,7 +11,7 @@ const state = {
 
 const getters = {
   articlesCount (state) {
-    return state.aritclesCount
+    return state.articlesCount
   },
   articles (state) {
     return state.articles

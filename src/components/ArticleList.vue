@@ -10,6 +10,7 @@
         :article="article"
         :key="article.title + index"
       />
+      <Pagination :pages="pages" :currentPage.sync="currentPage"></Pagination>
     </div>
   </div>
 
@@ -19,11 +20,13 @@
 import {mapGetters} from 'vuex'
 import DmArticlePreview from './VArticlePreview'
 import {FETCH_ARTICLES} from '../store/actions.type'
+import Pagination from './Pagination'
 
 export default {
   name: 'DmArticleList',
   components: {
-    DmArticlePreview
+    DmArticlePreview,
+    Pagination
   },
   props: {
     type: {
