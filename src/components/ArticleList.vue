@@ -65,6 +65,9 @@ export default {
         limit: this.itemsPerPage
       }
       if (this.author) {
+        filters.author = this.author
+      }
+      if (this.tag) {
         filters.tag = this.tag
       }
       if (this.favorited) {

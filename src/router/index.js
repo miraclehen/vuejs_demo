@@ -9,6 +9,8 @@ import ArticleEdit from '../views/ArticleEdit'
 import Profile from '../views/Profile'
 import HomeGlobal from '../views/HomeGlobal'
 import HomeMyFeed from '../views/HomeMyFeed'
+import ProfileArticles from '../views/ProfileArticles'
+import ProfileFavorited from '../views/ProfileFavorited'
 
 Vue.use(Router)
 
@@ -47,7 +49,19 @@ export default new Router({
     },
     {
       path: '/@:username',
-      component: Profile
+      component: Profile,
+      children: [
+        {
+          path: '',
+          name: 'profile',
+          component: ProfileArticles
+        },
+        {
+          name: 'profile-favorites',
+          path: 'favorites',
+          component: ProfileFavorited
+        }
+      ]
     }
   ]
 })
