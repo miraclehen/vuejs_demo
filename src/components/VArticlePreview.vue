@@ -2,8 +2,8 @@
   <div class="article-preview">
     <dm-article-meta isPreview :article="article"/>
     <router-link :to="articleLink" class="preview-link">
-      <h1 v-text="article.title"/>
-      <p v-text="article.desciption"/>
+      <h1 v-text="article.title"></h1>
+      <p v-text="article.description"></p>
       <span>Read more...</span>
     </router-link>
   </div>

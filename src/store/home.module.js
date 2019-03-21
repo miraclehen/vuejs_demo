@@ -27,7 +27,7 @@ const getters = {
 const actions = {
   [FETCH_ARTICLES] ({commit}, params) {
     commit(FETCH_START)
-    return ArticlesService.query(params.stype, params.filters)
+    return ArticlesService.query(params.type, params.filters)
       .then(({data}) => {
         commit(FETCH_END, data)
       })
@@ -47,7 +47,32 @@ const actions = {
 }
 
 const mutations = {
-  [FETCH_START](state) {
+  [FETCH_START] (state) {
     state.isLoading = true
+  },
+  [FETCH_END] (state, {articles, articlesCount}) {
+    state.articles = articles
+    state.articlesCount = articlesCount
+    state.isLoading = false
+  },
+  [SET_TAGS] (state, tags) {
+    state.tags = tags
+  },
+  [UPDATE_ARTICLE_IN_LIST] (state, data) {
+    state.articles = state.articles.map(article => {
+      if (article.slug !== data.slug) {
+        return article
+      }
+      article.favorited = data.favorited
+      article.favoritesCount = data.favoritesCount
+      return article
+    })
   }
+}
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations
 }

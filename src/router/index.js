@@ -8,6 +8,7 @@ import Settings from '../views/Settings'
 import ArticleEdit from '../views/ArticleEdit'
 import Profile from '../views/Profile'
 import HomeGlobal from '../views/HomeGlobal'
+import HomeMyFeed from '../views/HomeMyFeed'
 
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
           path: '',
           name: 'home',
           component: HomeGlobal
+        },
+        {
+          path: 'my-feed',
+          name: 'home-my-feed',
+          component: HomeMyFeed
         }
       ]
     },

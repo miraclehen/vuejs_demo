@@ -12,7 +12,6 @@ import {CHECK_AUTH} from './store/actions.type'
 
 Vue.config.productionTip = false
 Vue.filter('date', DateFilter)
-Vue.filter('date', DateFilter)
 Vue.filter('error', ErrorFilter)
 
 ApiService.init()
