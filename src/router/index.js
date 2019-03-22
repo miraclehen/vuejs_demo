@@ -11,6 +11,7 @@ import HomeGlobal from '../views/HomeGlobal'
 import HomeMyFeed from '../views/HomeMyFeed'
 import ProfileArticles from '../views/ProfileArticles'
 import ProfileFavorited from '../views/ProfileFavorited'
+import HomeTag from '../views/HomeTag'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
           path: 'my-feed',
           name: 'home-my-feed',
           component: HomeMyFeed
+        },
+        {
+          path: 'tag/:tag',
+          name: 'home-tag',
+          component: HomeTag
         }
       ]
     },
